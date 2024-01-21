@@ -1,0 +1,25 @@
+.header{
+    width: 100%;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    height: 50px;
+    padding: 5px 0px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar{
+    display: flex;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.logout button{
+    background-color: var(--secondory-color);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    color: var(--background-color);
+}
