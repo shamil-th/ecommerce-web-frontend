@@ -3,7 +3,7 @@ import ProductCss from './ProductCat.module.css';
 import { createProduct, getCategoryProduct } from '../../../../features/admin/productSlice';
 import { useDispatch } from 'react-redux';
 
-const CreateProduct = ({ categoryId }) => {
+const CreateProduct = ({ categoryId,setAddProduct }) => {
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
@@ -18,7 +18,6 @@ const CreateProduct = ({ categoryId }) => {
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
         setImages(files);
-
     }
 
     const resetForm = () => {
@@ -40,15 +39,13 @@ const CreateProduct = ({ categoryId }) => {
             desc,
             images
         }
+
          await dispatch(createProduct(newProduct));
         dispatch(getCategoryProduct(categoryId));
+        setAddProduct(false);
 
         resetForm();
     }
-
-    // useEffect(() => {
-
-    // },[categoryId,dispatch])
 
     return (
         <div >
@@ -61,7 +58,7 @@ const CreateProduct = ({ categoryId }) => {
                 <input type="text" placeholder='specifications' onChange={(e) => setSpec(e.target.value)} />
                 <textarea type="text" rows="5" placeholder='description' onChange={(e) => setDesc(e.target.value)} />
                 <div className={ProductCss.buttons}>
-                    <button>Cancel</button>
+                    <button type='button' onClick={()=>setAddProduct(false)}>Cancel</button>
                     <button type='button' onClick={postProduct}>Add Product</button>
                 </div>
             </form>

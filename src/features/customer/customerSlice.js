@@ -1,24 +1,19 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from 'axios';
 
-
-export const adminLogin = createAsyncThunk('admin/adminLogin', async (data) => {
-
+export const customerlogin = createAsyncThunk('customers/customerlogin', async (data) => {
     try {
-        const response = await axios.post('http://localhost:4000/admin/login', data);
+        const response = await axios.post('http://localhost:4000/customer/login', data);
         if (!response.data) {
-            throw new Error('failed to login');
+            throw new Error('invalid details')
         }
-
         const token = response.data.token;
 
         if (token.length > 0) {
             localStorage.setItem('token', response.data.token);
-            // window.location.replace("/admin_home");
-            window.location.replace("/category");
+            window.location.replace("/home")
         }
-        return response.data;
-
+        return response.data
     } catch (error) {
         if (error.response) {
             if (error.response.status === 404) {
@@ -37,19 +32,19 @@ export const adminLogin = createAsyncThunk('admin/adminLogin', async (data) => {
 })
 
 const initialState = {
-    admin: [],
-};
+    customers: [],
+}
 
-const adminSlice = createSlice({
-    name: "admin",
+const customerSlice = createSlice({
+    name: "customers",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(adminLogin.fulfilled, (state) => {
-                state.status = "succeeded";
+            .addCase(customerlogin.fulfilled, (state) => {
+                state.status = "succeed";
             })
     }
 })
 
-export default adminSlice.reducer;
+export default customerSlice.reducer;

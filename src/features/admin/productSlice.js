@@ -27,6 +27,19 @@ export const createProduct = createAsyncThunk('products/createProduct', async (d
     }
 });
 
+// retrive all product
+export const getAllProducts = createAsyncThunk('products/getAllProducts', async () => {
+    try {
+        const response = await axios.get('http://localhost:4000/products/products');
+        if(!response.data) {
+            throw new Error("error while retriving products");
+        }
+        return response.data;
+    }catch(error) {
+        console.error(error, 'cannot retrive products')
+    }
+})
+
 // retrive products based on selected category
 export const getCategoryProduct = createAsyncThunk('products/getCategoryProduct', async (id) => {
     try {
@@ -48,17 +61,17 @@ export const getProduct = createAsyncThunk('product/getProduct', async (id) => {
         if(!response.data){
             throw new Error('product not found');
         }
-        console.log('single',response.data);
         return response.data;
     }catch(err) {
         console.Error("error while retriving data");
     }
 })
+
+
 // edit product
 export const updateProduct = createAsyncThunk('product/updateProduct', async (data) => {
 
     const id = data.id;
-    console.log("update",id)
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("categoryId", data.categoryId);
@@ -114,6 +127,10 @@ const productSlice = createSlice({
             //     state.status = "failed";
             //     state.error = action.error.message;
             // })
+            .addCase(getAllProducts.fulfilled,(state,action) => {
+                state.status = "succeed";
+                state.products = action.payload;
+            })
             .addCase(getCategoryProduct.fulfilled, (state, action) => {
                 state.status = "succeed";
                 state.categoryProducts = action.payload;

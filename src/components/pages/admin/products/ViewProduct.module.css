@@ -1,13 +1,27 @@
-
-.cover{
-    border:2px solid;
+.cover {
+    border: 2px solid;
     width: 250px;
     height: 300px;
     object-fit: cover;
 }
-.secondory{
+
+.secondory {
     border: 2px solid red;
     width: 150px;
     height: 160px;
     object-fit: cover;
+}
+
+.edit_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 40px;
+}
+
+.input_fields{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 60%;
 }
