@@ -6,6 +6,7 @@ import NotFound from '../../common/NotFound'
 import Category from './Category';
 import Products from './Products';
 import ProductCategory from './products/ProductCategory';
+import ViewProduct from './products/ViewProduct';
 
 const Admin = () => {
 
@@ -18,7 +19,8 @@ const Admin = () => {
                 <Route path='/admin_home' element={token ? <AdminHome /> : <NotFound />} />
                 <Route path='/category' element={<Category />} />
                 <Route path='/products' element={<Products />} />
-                <Route path='/productlist' element={<ProductCategory />} />
+                <Route path='/productlist/:id' element={<ProductCategory />} />
+                <Route path='/product-details' element={<ViewProduct/>}/>
             </Routes>
 
         </div>

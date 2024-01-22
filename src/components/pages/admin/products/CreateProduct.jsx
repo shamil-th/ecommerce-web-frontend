@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import ProductCss from './ProductCat.module.css';
 import { createProduct, getCategoryProduct } from '../../../../features/admin/productSlice';
 import { useDispatch } from 'react-redux';
@@ -11,18 +11,26 @@ const CreateProduct = ({ categoryId }) => {
     const [spec, setSpec] = useState("");
     const [desc, setDesc] = useState("");
 
-    const [images, setImages] = useState();
+    const [images, setImages] = useState("");
 
     let dispatch = useDispatch();
 
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
         setImages(files);
-       
-    }
-    console.log(images)
 
-    const postProduct = async () => {
+    }
+
+    const resetForm = () => {
+        setName("");
+        setPrice("");
+        setDiscount("");
+        setSpec("");
+        setDesc("");
+        setImages("");
+    }
+
+    const postProduct =  async() => {
         const newProduct = {
             categoryId,
             name,
@@ -32,14 +40,20 @@ const CreateProduct = ({ categoryId }) => {
             desc,
             images
         }
-        await dispatch(createProduct(newProduct));
-        dispatch(getCategoryProduct(categoryId))
+         await dispatch(createProduct(newProduct));
+        dispatch(getCategoryProduct(categoryId));
+
+        resetForm();
     }
+
+    // useEffect(() => {
+
+    // },[categoryId,dispatch])
 
     return (
         <div >
             <h3>Create Product</h3>
-            <div className={ProductCss.input_fields}>
+            <form className={ProductCss.input_fields}>
                 <input type="file" multiple onChange={handleImageChange} />
                 <input type="text" placeholder='name' onChange={(e) => setName(e.target.value)} />
                 <input type="text" placeholder='price' onChange={(e) => setPrice(e.target.value)} />
@@ -48,9 +62,9 @@ const CreateProduct = ({ categoryId }) => {
                 <textarea type="text" rows="5" placeholder='description' onChange={(e) => setDesc(e.target.value)} />
                 <div className={ProductCss.buttons}>
                     <button>Cancel</button>
-                    <button onClick={postProduct}>Add Product</button>
+                    <button type='button' onClick={postProduct}>Add Product</button>
                 </div>
-            </div>
+            </form>
 
         </div>
     )

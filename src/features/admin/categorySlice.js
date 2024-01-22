@@ -6,6 +6,7 @@ export const addCategory = createAsyncThunk('categories/addCategory', async (dat
 
     const formData = new FormData();
     formData.append('categoryName', data.categoryName);
+    formData.append('description', data.description);
     formData.append('categoryImg', data.categoryImg);
     try {
         const response = await axios.post('http://localhost:4000/category/create-category', formData)
@@ -38,6 +39,7 @@ export const editCategory = createAsyncThunk('categories/editCategory', async (d
 
     const formData = new FormData();
     formData.append('categoryName', data.categoryName);
+    formData.append('description', data.description);
     formData.append('categoryImg', data.categoryImg);
 
     console.log("onedit",  data.categoryImg)

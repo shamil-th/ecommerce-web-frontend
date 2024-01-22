@@ -15,7 +15,8 @@ export const adminLogin = createAsyncThunk('admin/adminLogin', async (data) => {
         if (token.length > 0) {
             console.log("sucess")
             localStorage.setItem('token', response.data.token);
-            window.location.replace("/admin_home");
+            // window.location.replace("/admin_home");
+            window.location.replace("/category");
         }
         return response.data;
 

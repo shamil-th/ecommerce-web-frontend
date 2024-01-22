@@ -4,6 +4,9 @@
 --background-color: #f7f6f4;
 --light-primary: #6ebc32;
 }
+body{
+    background-color: var(--background-color);
+}
 .container{
     max-width: 1200px;
     margin: auto;
