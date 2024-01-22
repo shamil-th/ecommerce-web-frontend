@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginCss from './Login.module.css';
 import { useDispatch } from 'react-redux';
-import { customerlogin } from '../../../features/customer/customerSlice';
+import { customerlogin } from '../../../../features/customer/customerSlice';
 
 
 const LoginCustomer = () => {
