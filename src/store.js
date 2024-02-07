@@ -4,6 +4,7 @@ import categoryReducer from "./features/admin/categorySlice";
 import productSlice from "./features/admin/productSlice";
 import customerSlice from "./features/customer/customerSlice";
 import cartSlice from "./features/cart/cartSlice";
+import stripeSlice from "./features/stripe/stripeSlice";
 
 const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
         categories: categoryReducer,
         products: productSlice,
         customers: customerSlice,
-        cart:cartSlice
+        cart:cartSlice,
+        stripe:stripeSlice
     }
 });
 

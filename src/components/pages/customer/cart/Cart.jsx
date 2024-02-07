@@ -4,6 +4,7 @@ import { cartList } from "../../../../features/cart/cartSlice";
 import Navbar from "../../../common/customer/Navbar";
 import CartItems from "./CartItems";
 import CartCss from "./Cart.module.css";
+import PayButton from "./PayButton";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.cart);
@@ -41,7 +42,7 @@ const Cart = () => {
         </div>
         <div>
           <h3>Total {total}</h3>
-          <button>Place Order</button>
+          <PayButton items={cart?.cart_products}/>
         </div>
       </div>
     </>
