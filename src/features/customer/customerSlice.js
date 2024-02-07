@@ -7,10 +7,10 @@ export const customerSignup = createAsyncThunk('customers/customerSignup', async
     try{
         const response = await axios.post('http://localhost:4000/customer/signup', data);
         if(!response.data){
-            throw new Error('Signup failed')
+            throw new Error('Signup failed');
         }
 
-        window.location.replace("/login")
+        window.location.replace("/login");
         return response.data;
 
     }catch(err){
@@ -30,7 +30,9 @@ export const customerlogin = createAsyncThunk('customers/customerlogin', async (
 
         if (token.length > 0) {
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('id', response.data.id);
             window.location.replace("/home")
+            
         }
         return response.data
     } catch (error) {

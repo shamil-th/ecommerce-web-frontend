@@ -4,8 +4,7 @@ import AdminHeader from '../../common/AdminHeader';
 const AdminHome = () => {
   return (
     <div>
-            <AdminHeader />
-
+      <AdminHeader />
     </div>
   )
 }

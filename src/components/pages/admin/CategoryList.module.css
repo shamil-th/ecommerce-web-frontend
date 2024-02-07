@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-evenly;
+    margin-bottom: 40px;
 }
 .category{
     background-color: white;
@@ -19,4 +20,22 @@
     width: 250px;
     height: 250px;
     object-fit: cover;
+}
+
+.dlt_form{
+    background-color: white;
+    border-radius: 5px;
+    width: 500px;
+    height: 200px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 5px;
+    width: 500px;
+    height: 200px;
+    padding: 30px 20px;
+    text-align: center;
 }

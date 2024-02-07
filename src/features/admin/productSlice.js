@@ -10,6 +10,7 @@ export const createProduct = createAsyncThunk('products/createProduct', async (d
     formData.append("categoryId", data.categoryId);
     formData.append("price", data.price)
     formData.append("discount", data.discount)
+    formData.append("discountedPrice", data.discountedPrice)
     formData.append("specifications", data.spec)
     formData.append("description", data.desc);
     data.images.map((image) => (
@@ -112,6 +113,7 @@ const initialState = {
     products: [],
     categoryProducts: [],
     product: [],
+    status:[],
 };
 
 const productSlice = createSlice({

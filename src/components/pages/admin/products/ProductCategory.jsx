@@ -11,7 +11,8 @@ const ProductCategory = () => {
 
     const categoryProducts = useSelector((state) => state.products.categoryProducts);
 
-    const [addProduct,setAddProduct] = useState(false)
+    const [addProduct,setAddProduct] = useState(false);
+    
     let dispatch = useDispatch();
 
     const { id } = useParams();

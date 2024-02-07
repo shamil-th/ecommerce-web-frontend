@@ -1,0 +1,14 @@
+.cart_list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cart_item{
+    border-bottom: 1px solid;
+    display: flex;
+}
+.cart_item img {
+    width: 200px;
+    height: 300px;
+    object-fit: contain;
+}

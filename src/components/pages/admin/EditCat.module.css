@@ -1,0 +1,39 @@
+.edit_overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+
+.edit_form input[type="text"] {
+    padding: 3px 10px;
+}
+
+.edit_form textarea {
+    padding: 5px 10px;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 5px;
+    width: 500px;
+    height: 200px;
+    padding: 30px 20px;
+    text-align: center;
+}

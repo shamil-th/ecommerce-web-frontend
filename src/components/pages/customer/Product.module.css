@@ -1,0 +1,21 @@
+.cat_products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.product_card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+    padding: 10px;
+}
+
+.product_card img{
+    width: 200px;
+    height: 250px;
+    object-fit: contain;
+}

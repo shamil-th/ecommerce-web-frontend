@@ -1,0 +1,67 @@
+.product_images{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.cover{
+    position: relative;
+}
+.discount_off{
+    background-color: #c0113a;
+    padding: 2px 8px;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.product_cover{
+    width: 300px;
+    height: 350px;
+    object-fit: contain;
+    border-bottom: 1px solid grey;
+}
+.product_profile{
+    display: flex;
+    margin-top: 30px;
+}
+.images{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.queue_images{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.details{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* align-items: center; */
+    justify-content: center;
+}
+.price{
+    display: flex; 
+
+}
+.strike_price{
+    color: grey;
+}
+
+.details h4 i .fa-solid.fa-indian-rupee-sign{
+    font-size: 12px;
+}
+
+.discount_price{
+    display: flex;
+    align-items: center;
+}
+
+.discount_price i{
+    font-size: 12px;
+    margin-left: 6px;
+    margin-top: 4px;
+}
