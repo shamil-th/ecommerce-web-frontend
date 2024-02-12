@@ -20,14 +20,14 @@ const Cart = () => {
 
   // Calculate total price when cart changes
   useEffect(() => {
-    if (cart?.cart_products) {
-      const totalPrice = cart.cart_products.reduce((acc, product) => {
-        const productTotal =  product.discountedPrice>0 ? product.discountedPrice : product.price;
+    if (cart) {
+      const totalPrice = cart.reduce((acc, product) => {
+        const productTotal =  (product.cartItems.discountedPrice>0 ? product.cartItems.discountedPrice : product.cartItems.price)*product.quantity;
         return acc + productTotal;
       }, 0);
       setTotalPrice(totalPrice);
     }
-  }, [cart,cart.cart_products]);
+  }, [cart]);
 
   return (
     <>
@@ -35,9 +35,9 @@ const Cart = () => {
       <div className="container">
         <h1>Shopping Cart</h1>
         <div className={CartCss.cart_list}>
-          {status === "succeeded" &&
-            cart.cart_products.map((item) => (
-              <CartItems item={item} key={item._id} />
+          {
+            cart.map((item) => (
+              <CartItems cartItem={item} key={item._id} />
             ))}
         </div>
         <div>

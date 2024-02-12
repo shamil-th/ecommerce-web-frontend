@@ -38,12 +38,14 @@ const ProductProfile = () => {
   }, [price, discount]);
 
   const addCart = () => {
-    const productId = product._id;
+    const id = product._id;
     const userId = localStorage.getItem("id");
+    const quantity = 1;
 
     const data = {
-      productId,
+      id,
       userId,
+      quantity,
     };
     dispatch(addtoCart(data));
     setInCart(true)

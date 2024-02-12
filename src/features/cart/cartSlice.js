@@ -15,6 +15,26 @@ export const addtoCart = createAsyncThunk('cart/addtoCart', async (data) => {
     }
 });
 
+// update quantity
+export const cartCountUpdate = createAsyncThunk('cart/cartCountUpdate',async (data) => {
+    const {action,productId,userId} = data;
+    console.log(data)
+    const id = productId;
+    const details = {
+        userId,
+        id,
+    }
+    try {
+        const response = await axios.put(`http://localhost:4000/cart/${action}`, details);
+        if(!response.data){
+            throw new Error('cannot update quantity')
+        }
+        return response.data;
+    }catch(err){
+        console.errror('cannot update quantity')
+    }
+})
+
 // show all items in the cart
 export const cartList = createAsyncThunk('cart/cartList', async (id) => {
     try{
@@ -59,10 +79,13 @@ const cartSlice = createSlice({
         })
         .addCase(cartList.fulfilled, (state,action) => {
             state.status = 'succeeded';
-            state.cart = action.payload;
+            state.cart = action.payload.userCarts[0].products;
         })
         .addCase(removeCartItem.fulfilled, (state) => {
             state.status = 'item removed'
+        })
+        .addCase(cartCountUpdate.fulfilled, (state) => {
+            state.status = 'quantity updated'
         })
     }
 })
